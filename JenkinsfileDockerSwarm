@@ -3,7 +3,7 @@ node {
     def imageName = "sioudkhouloul/java-web-app:${buildNumber}"
 
     stage("Git CheckOut") {
-        git url: 'https://github.com/khouloudsioud7-web/java-web-app-docker.git',
+        git url: 'https://github.com/khouloudsioud81-design/java-web-app-docker.git',
             branch: 'master'
     }
 
