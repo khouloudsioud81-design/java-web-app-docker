@@ -1,6 +1,6 @@
 node {
     def buildNumber = BUILD_NUMBER
-    def imageName = "sioudkhouloul/java-web-app:${buildNumber}"
+    def imageName = "khoukhasd/java-web-app:${buildNumber}"
 
     stage("Git CheckOut") {
         git url: 'https://github.com/khouloudsioud81-design/java-web-app-docker.git',
@@ -24,7 +24,7 @@ node {
         ]) {
             sh '''
                 echo "$DOCKERHUB_TOKEN" | docker login \
-                --username sioudkhouloul --password-stdin
+                --username khoukhasd --password-stdin
             '''
         }
 
@@ -44,7 +44,7 @@ node {
                 ssh -o StrictHostKeyChecking=no khouloud@192.168.244.134 \
                 "docker service create --name javawebapp \
                 --publish 8080:8080 --replicas 2 \
-                sioudkhouloul/java-web-app:${BUILD_NUMBER}"
+                khoukhasd/java-web-app:${BUILD_NUMBER}"
             '''
         }
     }
